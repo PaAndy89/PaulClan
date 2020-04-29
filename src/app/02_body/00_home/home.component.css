@@ -1,0 +1,50 @@
+/* Container holding the image and the text */
+
+.home {
+    background-color: rgb(221, 221, 221);
+}
+
+.container {
+    background-color:  rgb(221, 221, 221);
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.top-left {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+}
+
+.top-centered {
+    position: absolute;
+    text-align: center;
+    top: 8px;
+    left: 41%;
+}
+
+.top-right {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+}
+
+.bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+}
+
+.bottom-right {
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

@@ -1,0 +1,17 @@
+<div *ngIf="nav">
+    <div class="row text-center">
+        <div class="col-md-4">
+            <ul class="nav nav-tabs">
+                <li routerLinkActive="active" *ngFor="let viewLink of viewArray">
+                    <button [ngStyle]="{'background-color':activeView(viewLink)}" (click)=" onSelect(viewLink)">
+                        {{viewLink}} view
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+        </div>
+        <div class="col-sm-4">
+        </div>
+    </div>
+</div>

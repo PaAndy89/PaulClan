@@ -1,0 +1,45 @@
+<div class="col-sm-12 text-center">
+    <div class="row">
+        <h2>Change shift for {{data.userName}}</h2>
+    </div>
+    <div class="row">
+        <h4>on {{data.Day.Day}} {{monthName(data.Day.Month)}} {{data.Day.Year}}</h4>
+    </div>
+    <div class="row">
+        <h4>actual {{actualShift}} {{actualComment}}</h4>
+    </div>
+    <mat-form-field class="table">
+        <mat-radio-group aria-labelledby="radio-group-label" class="radio-group" [(ngModel)]="data.Day.Status">
+            <mat-label>
+                <span class="text-center row">Absent</span>
+            </mat-label>
+            <mat-radio-button class="radio-button col-sm-4" *ngFor="let absent of absent" [value]="absent">
+                {{absent}}
+            </mat-radio-button>
+            <mat-label>
+                <span class="text-center row">Shift</span>
+            </mat-label>
+            <mat-radio-button class="radio-button col-sm-4" *ngFor="let shift of shifts" [value]="shift">
+                {{shift}}
+            </mat-radio-button>
+        </mat-radio-group>
+        <h4 class="col-sm-12">
+            <mat-label class="row">
+                <span>Comment:</span>
+            </mat-label>
+            <input matInput [(ngModel)]="data.Day.Comment">
+        </h4>
+    </mat-form-field>
+    <div class="row">
+        <div class="text-center col-sm-12">
+            <div mat-dialog-actions>
+                <div class="col-sm-6">
+                    <button mat-button class="btn btn-block btn-warning" (click)="abort()">Abort</button>
+                </div>
+                <div class="col-sm-6">
+                    <button mat-button class="btn btn-block btn-success" [mat-dialog-close]="data" cdkFocusInitial>Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

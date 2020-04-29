@@ -1,0 +1,40 @@
+/* Own Styles */
+
+.scrollAble {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 850px;
+}
+
+.scrollUnAble {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+input[type="file"] {
+    visibility: hidden;
+}
+
+textarea.ng-invalid, input.ng-invalid {
+    border: 2px solid red;
+}
+
+textarea.ng-invalid.ng-touched, input.ng-invalid.ng-touched {
+    border: 2px solid black;
+    background-color: red;
+}
+
+.snackbar-send {
+    color: black;
+    background: rgb(255, 255, 0);
+}
+
+.snackbar-error {
+    color: black;
+    background: red;
+}
+
+.snackbar-success {
+    color: black;
+    background: yellowgreen;
+}

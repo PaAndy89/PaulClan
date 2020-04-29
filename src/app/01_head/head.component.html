@@ -1,0 +1,52 @@
+<div *ngIf="nav.NavBar"  (click)="displayLinks = !displayLinks">
+    <div class="row text-center">
+        <div class="col-md-2 center">
+            <div [ngStyle]="{'background-color':liveBit()}">
+                {{clock.Time}}<br>
+                {{clock.TimeZone}}<br>
+            </div>
+        </div>
+        <div class="col-md-2 center" (click)="displayLinks = !displayLinks">
+
+            {{clock.WeekDay}}<br>
+            {{clock.Date}}<br>
+
+        </div>
+        <div class="col-md-4">
+            <h1 class="center">{{nav.Title}}</h1>
+        </div>
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-2">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown" appDropdown>
+                    <a class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <!-- Dropdown to development structure not working yet -->
+                        <li><a>Add User</a></li>
+                        <li><a>Fetch Data</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- **********************************************************************-Navigation Bar-********************************************************************** -->
+    <div *ngIf="displayLinks">
+        <nav class="navbar-default container-fluid">
+            <div class="collaps">
+                <ul class="nav nav-tabs">
+                    <li>
+                        <a class="navbar-item" [routerLink]="['/', 'Home']" (click)="onSelect('Clan')">
+                            <img class="images" src="assets/resources/img/PaulClan.png" width="20" height="20">
+                        </a>
+                    </li>
+                    <li routerLinkActive="active" *ngFor="let link of links">
+                        <a [routerLink]="['/', link]" (click)="onSelect(link)">
+                            {{link}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>

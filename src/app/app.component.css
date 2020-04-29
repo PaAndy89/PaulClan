@@ -1,0 +1,28 @@
+.head {
+    position: Static;
+    left: 0;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.body {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.foot {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}

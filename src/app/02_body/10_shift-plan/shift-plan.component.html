@@ -1,0 +1,77 @@
+<div class="col-sm-12 text-center">
+    <div class="row">
+        <div class="col-xs-4">
+            <button class="btn btn-default" (click)="changeYear(-1)">prev</button>
+            <button class="btn btn-success" (click)="changeYear('NOW')">{{yearNow}}</button>
+            <button class="btn btn-default" (click)="changeYear(+1)">next</button>
+        </div>
+        <div class="panel-title col-xs-4">
+            <h1 class="panel-title"> {{calendar.Name}}</h1>
+        </div>
+        <!-- <div class="col-xs-2"> System
+            <button class="btn btn-default" (click)="shiftFunc(1)" [ngStyle]="{'background-color':shiftCheck(1)}">1
+                shift</button>
+            <button class="btn btn-default" (click)="shiftFunc(2)" [ngStyle]="{'background-color':shiftCheck(2)}">2
+                shift</button>
+            <button class="btn btn-default" (click)="shiftFunc(3)" [ngStyle]="{'background-color':shiftCheck(3)}">3
+                shift</button>
+        </div> -->
+        <!-- <div class="col-xs-2"> Team
+            <button class="btn btn-default" (click)="teamFunc(1)"
+                [ngStyle]="{'background-color':teamCheck(1)}">A</button>
+            <button class="btn btn-default" (click)="teamFunc(2)"
+                [ngStyle]="{'background-color':teamCheck(2)}">B</button>
+            <button class="btn btn-default" (click)="teamFunc(3)" [ngStyle]="{'background-color':teamCheck(3)}"
+                [disabled]="shift == 2">F</button>
+        </div> -->
+    </div>
+    <div class="row" *ngFor="let quater of calendar.Quater let iQuater = index">
+        <div *ngFor="let month of quater.Month let iMonth = index">
+            <div class="container well col-md-4">
+                <h2>{{month.Name}}</h2>
+                <div class="row">
+                    <div class="col-xs-2">Mon</div>
+                    <div class="col-xs-2">Tue</div>
+                    <div class="col-xs-2">Wed</div>
+                    <div class="col-xs-2">Thu</div>
+                    <div class="col-xs-2">Fri</div>
+                    <div class="col-xs-1">Sat</div>
+                    <div class="col-xs-1">Sun</div>
+                </div>
+
+                <div *ngFor="let week of month.CWeek let iWeek = index">
+                    <label>CW {{week.Name}}</label>
+                    <div class="row">
+
+
+                        <div *ngFor="let day of week.Days let iDay = index">
+                            <div *ngIf="day.Year != year">
+                                <div class="col-xs-1" *ngIf="day.WeekDay > 4"> </div>
+                                <div class="col-xs-2" *ngIf="day.WeekDay <= 4"> </div>
+                            </div>
+                            <div *ngIf="day.Year == year">
+                                <div *ngIf="day.Month != month.Number">
+                                    <div [ngClass]="day.Class" (click)="openErrorSnackBar('only Click on Buttons')">
+                                        {{day.Day}}
+                                    </div>
+                                </div>
+                                <div *ngIf="day.Month == month.Number">
+                                    <button [matTooltip]="day.Comment" matTooltipPosition="above"
+                                        [ngStyle]="{'background-color': day.Color}"
+                                        [ngClass]="day.Class + ' btn btn-default'"
+                                        (click)="openDialog(iMonth, iDay, day)">
+                                        {{day.Day}} </button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
